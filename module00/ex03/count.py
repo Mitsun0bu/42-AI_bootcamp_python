@@ -1,11 +1,13 @@
+import sys
+
 def text_analyzer(*arg):
-    """This function analyze a single string arg
+    """This function analyze a single string passed as an argument
 
     It counts the total number of char and lists :
     - the number of upper characters,
     - the number of lower characters,
     - the number of punctuation marks,
-    - spaces."""
+    - the number of spaces."""
     if len(arg) == 0:
         analyze_user_input()
     else:
@@ -51,3 +53,13 @@ def count_punct_mark(str):
         if str[c] in ('!', ",", "\'", ";", "\"", ".", "-", "?"):
             count = count + 1
     return (count)
+
+if __name__=="__main__":
+    if len(sys.argv[1:]) == 1:
+        text = str(sys.argv[1])
+        if input_is_int(text) is False:
+            analyze_text(text)
+        else:
+            print("Error: argument is not a string")
+    else:
+        print("Error: too many arguments")
