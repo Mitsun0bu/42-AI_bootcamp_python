@@ -1,6 +1,6 @@
-kata = (2019, 9, 25, 3, 30)
-
 import datetime as dt
+
+kata = (2019, 9, 25, 3, 30)
 
 date = dt.date(year=kata[0], month=kata[1], day=kata[2])
 date_str = date.strftime("%m/%d/%Y ")
