@@ -31,7 +31,52 @@ def delete_recipe(recipe_name):
         print('Recipe not found !')
 
 
-cookbook = {}
+def input_is_int(str):
+    if str[0] in ('-', '+'):
+        return str[1:].isdigit()
+    else:
+        return str.isdigit()
+
+
+def add_recipe(recipes, data):
+    # get name of the new_recipe and add it to recipes list
+    print('Enter a name:')
+    name = input()
+    recipes.append(name)
+    # create a new_recipe dict
+    new_recipe = {}
+    # get ingredients list
+    print('Enter ingredients:')
+    ingredients = []
+    while True:
+        ingredient = input()
+        if ingredient == '':
+            break
+        else:
+            ingredients.append(ingredient)
+    # get meal type
+    print('Enter a meal type:')
+    meal_type = input()
+    # get preparation time
+    print('Enter a preparation time:')
+    while True:
+        prep_time = input()
+        if input_is_int(prep_time) is True and int(prep_time) > 0:
+            break
+        else:
+            print('Preparation time should be a non-negative integer')
+            print('Enter a preparation time:')
+    # add ingredients, meal and prep_time to the new_recipe dict
+    new_recipe['ingredients'] = ingredients
+    new_recipe['meal'] = meal_type
+    new_recipe['prep_time'] = prep_time
+    # add the new_recipe to data list
+    data.append(new_recipe)
+    # zip recipes and data lists in new_recipe dict, then return it
+    new_recipe = dict(zip(recipes, data))
+    return new_recipe
+
+
 recipes = ['sandwich', 'cake', 'salad']
 data = [{'ingredients': ['ham', 'bread', 'cheese', 'tomatoes'],
          'meal': 'lunch',
@@ -44,6 +89,7 @@ data = [{'ingredients': ['ham', 'bread', 'cheese', 'tomatoes'],
          'prep_time': 15}]
 cookbook = dict(zip(recipes, data))
 
+
 # ~~~~~ TESTS ~~~~~
 # print_recipes_names(cookbook)
 # print('\n')
@@ -51,3 +97,6 @@ cookbook = dict(zip(recipes, data))
 # print('\n')
 # cookbook = delete_recipe('cake')
 # print('\n')
+# cookbook = add_recipe(recipes, data)
+# print('\n')
+# print(cookbook)
