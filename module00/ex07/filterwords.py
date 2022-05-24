@@ -1,4 +1,3 @@
-from sre_constants import SUCCESS
 import sys
 
 
