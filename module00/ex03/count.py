@@ -49,8 +49,8 @@ def analyze_text(text):
 
 def count_punct_mark(str):
     count = 0
-    for c in range(0, len(str)):
-        if str[c] in ('!', ",", "\'", ";", "\"", ".", "-", "?"):
+    for c in str:
+        if c in ('!', ",", "\'", ";", "\"", ".", "-", "?"):
             count = count + 1
     return (count)
 
