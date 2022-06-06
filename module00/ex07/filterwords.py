@@ -7,11 +7,11 @@ def print_error():
     print('arg_1 should be a str and arg_2 should be an int')
 
 
-def arg_is_int(str):
-    if str[0] in ('-', '+'):
-        return str[1:].isdigit()
+def arg_is_int(string):
+    if string[0] in ('-', '+'):
+        return string[1:].isdigit()
     else:
-        return str.isdigit()
+        return string.isdigit()
 
 
 def args_are_valid(arg_1, arg_2):
@@ -35,7 +35,4 @@ else:
         trm = [lst[i].strip(" .,;\'\"-!?") for i in range(0, len(lst))]
         res = []
         [res.append(trm[i]) for i in range(0, len(trm)) if len(trm[i]) > a_2]
-        # for i in range(0, len(trm)):
-        #     if len(trm[i]) > a_2:
-        #         res.append(trm[i])
         print(res)

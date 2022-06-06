@@ -146,6 +146,5 @@ if __name__=="__main__":
                         print('=== RECIPE #', i, ' ===')
                         print('Name\t\t', ':', recipes[i])
                         print(print_recipe_details(recipes[i]))
-
         print('Cookbook closed. Goodbye !')
         print('================================')
