@@ -4,11 +4,12 @@ SUCCESS = 0
 
 
 def print_rules() -> None:
-    print("==========================================================================")
+    print("==================================================")
     print("This is an interactive guessing game!")
-    print("You have to enter a number between 1 and 99 to find out the secret number.")
+    print("You have to find out the secret number.")
+    print("To do so please enter a number between 1 and 99.")
     print("Type 'exit' to end the game. Good luck!")
-    print("==========================================================================")
+    print("==================================================")
 
 
 def check_usr_input(guess:  int) -> int:
@@ -25,7 +26,7 @@ def check_usr_input(guess:  int) -> int:
     return SUCCESS
 
 
-def check_win_event():
+def check_win_event() -> int:
     if guess == number:
         win_print()
         return SUCCESS
@@ -35,9 +36,10 @@ def check_win_event():
         print("Too low!\nTry again!\n")
 
 
-def win_print():
+def win_print() -> None:
     if number == 42:
-        print("The answer to the ultimate question of life, the universe and everything is 42.")
+        print("The answer to the ultimate question of life", end='')
+        print("the universe and everything is 42.")
     if n_try == 1:
         print("Congratulations! You won the game on your first try!")
     else:
