@@ -33,5 +33,7 @@ class Book:
         if (isinstance(recipes_list, dict) is False):
             raise TypeError("The list of recipes must be a dict !")
         for key in recipes_list.keys():
-            if (key != ("starter" or "lunch" or "dessert")):
+            if (key != "starter" and
+                    key != "lunch" and
+                    key != "dessert"):
                 raise ValueError("Recipe type must be starter, lunch or dessert !")

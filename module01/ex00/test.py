@@ -1,5 +1,4 @@
 import os
-import stat
 import datetime
 from book import Book
 from recipe import Recipe
@@ -23,14 +22,16 @@ recipe_2 = Recipe("soup",
                   "lunch")
 print(str(recipe_2))
 
-path = r"/Users/llethuil/Documents/42-AI_bootcamp_python/module01/test.py"
+print("\n")
+
+path = "test.py"
 
 modif_ts = os.path.getmtime(path)
-creation_ts = stat.st_birthtime
+creation_ts = os.path.getctime(path)
 
 book_1 = Book("cookbook",
               datetime.datetime.fromtimestamp(modif_ts),
               datetime.datetime.fromtimestamp(creation_ts),
-              {recipe_1.name: recipe_1.recipe_type,
-               recipe_2.name: recipe_2.recipe_type})
+              {recipe_1.recipe_type: recipe_1.name,
+               recipe_2.recipe_type: recipe_2.name})
 print(str(book_1))

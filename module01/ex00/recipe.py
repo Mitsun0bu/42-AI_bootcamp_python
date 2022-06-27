@@ -52,7 +52,9 @@ class Recipe:
         self.recipe_type = recipe_type
         if (isinstance(recipe_type, str) is False):
             raise TypeError("Type must be a str !")
-        if (recipe_type != ("starter" or "lunch" or "dessert")):
+        if (recipe_type != "starter" and
+                recipe_type != "lunch" and
+                recipe_type != "dessert"):
             raise ValueError("Type must be starter, lunch or dessert !")
 
     def __str__(self):
